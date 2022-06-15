@@ -15,26 +15,29 @@ function Table(props) {
                 <th className="px-4 py-2 border-2 border-black bg-emerald-600">Total</th>
             </thead>
             
+           
+
             <tbody>
               {
-              props.rows.map(row => {
-                  return (
-                    <tr>
-                        <td className="py-2 border-2 border-black bg-emerald-300">
+                
+                props.rows.map(row => {
+                    return(
+                        <tr>
+                            <td className="py-2 border-2 border-black bg-emerald-300">
                             {row.location}</td>
 
-                        {hours.map((cell=>{
-                            return (<td className="py-2 border-2 border-black bg-emerald-300">
-                                {cell}</td>);}))
-                        }
+                            {
+                                row.values.map(num => {
+                                    return (<td className="py-2 border-2 border-black bg-emerald-300">{num}</td>);
+                                })
+                            }
 
-                        <td className="py-2 border-2 border-black bg-emerald-300">
-                            {hours.reduce((total, curr) => total += curr, 0)}
-                        </td>
-
-                    </tr>
-                  );
-              })
+                            <td className="py-2 border-2 border-black bg-emerald-300">
+                            {row.values.reduce((total, curr) => total += curr, 0)}
+                            </td>
+                        </tr>
+                    );
+                })
             }
             
             </tbody>
@@ -42,15 +45,15 @@ function Table(props) {
             <tfoot className="font-bold">
                 <td className="border-2 border-black bg-emerald-600">Totals</td>
 
-                {hours.map((cell=>{
-                    return (<td className="border-2 border-black bg-emerald-600">
-                        {cell * props.rows.length}</td>);}))
+                {
+                    props.totals.map(num => {
+                        
+                        return (<td className="border-2 border-black bg-emerald-600">{num}</td>);
+                    })
                 }
 
                 <td className="border-2 border-black bg-emerald-600">
-                    {
-                        hours.reduce((total, curr) => total += curr, 0) * props.rows.length
-                    }
+                    {props.totals.reduce((total, curr) => total += curr, 0)}
                 </td>
 
             </tfoot>
