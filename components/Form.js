@@ -10,7 +10,7 @@ function Form(props) {
               <div className="flex items-center justify-center w-full my-2 mb-6 bg-emerald-300">
                 <label className="mx-2 my-2">Location</label>
                 <input name="loc" className="w-4/5 h-full mx-2 my-2 bg-gray-200 rounded-md shadow-md" 
-                type={"text"}/>
+                type={"text"} />
               </div>
   
               <div className="grid grid-cols-4 grid-rows-2 gap-1">
@@ -21,9 +21,9 @@ function Form(props) {
                 <button className="w-full h-full row-span-2 bg-emerald-700"
                 type="submit">Create</button>  
   
-                <input name="min" className="mx-2 mb-2 h-fit" type={"number"} />
-                <input name="max" className="mx-2 mb-2 h-fit" type={"number"} />
-                <input name="avg" className="mx-2 mb-2 h-fit" type={"text"} />
+                <input name="min" value="0" className="mx-2 mb-2 h-fit" type={"number"} />
+                <input name="max" value="100" className="mx-2 mb-2 h-fit" type={"number"} />
+                <input name="avg" value="50" className="mx-2 mb-2 h-fit" type={"text"} />
               </div>
         </form>
   
@@ -31,7 +31,6 @@ function Form(props) {
       </>
     )
   }
-  
 export default Form
   
   
